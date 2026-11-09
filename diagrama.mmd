@@ -1,0 +1,23 @@
+classDiagram
+
+    class PedidoView {
+        +pedir(String item) String
+        +exibir(String mensagem) String
+    }
+
+    class PedidoController {
+        -PedidoController()
+        +getInstancia()$ PedidoController
+        +receberPedido(String item) String
+    }
+
+    class PedidoService {
+        -PedidoService()
+        +getInstancia()$ PedidoService
+        +registrar(String item) String
+    }
+
+    PedidoView ..> PedidoController
+    PedidoController ..> PedidoService
+    PedidoController --> PedidoController : 1 instance
+    PedidoService --> PedidoService : 1 instance
